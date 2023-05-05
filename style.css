@@ -1,8 +1,17 @@
+:root{
+    --gap: 10px;
+    --btn: calc(var(--gap) * 6);
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: Consolas, monospace;
+}
+
+*:focus{
+    outline: none;
 }
 
 html{
@@ -15,47 +24,80 @@ html{
 }
 
 body{
-    padding: 20px;
+    width: min-content;
+    padding: calc(var(--gap) * 2);
     display: inherit;
     flex-flow: row wrap;
-    gap: 10px;
+    gap: var(--gap);
     background: ghostwhite;
     border-radius: 30px;
 }
 
 body *{
     border: none;
-}
-
-input{
-    width: 100%;
-    height: 200px;
-}
-
-.pad{
-    width: 100%;
-    height: 290px;
-    display: flex;
-    flex-flow: column wrap;
-    gap: 10px;
-}
-
-button{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: transparent 1.5px solid;
-    background: gainsboro;
-    color: darkslategray;
-    font-weight: bold;
-    font-size: medium;
     transition: .5s;
 }
 
-.op{
-    background: silver;
-    color: white;
+.result, .pad{
+    width: calc(calc(var(--btn) * 4) + calc(var(--gap) * 3));
+    height: calc(var(--gap) * 15);
+}
+
+.pad{
+    height: calc(calc(var(--btn) * 5) + calc(var(--gap) * 4));
+    display: flex;
+    flex-flow: column wrap;
+    gap: var(--gap);
+}
+
+.result *{
+    width: 100%;
+    text-align: right;
+}
+
+.result h2.prior{
+    height: 40%;
+    margin-top: 100%;
+    color: initial;
+    font-size: 48px;
+}
+
+.result h2, .result:hover h2{
+    height: 20%;
+    margin: 0;
+    color: dimgray;
+    font-size: revert;
+}
+
+.result h1{
+    height: 0;
+    font-size: 0;
+}
+
+.result h1.prior, .result:hover h1{
+    height: 40%;
+    font-size: 48px;
+}
+
+.result canvas{
+    height: 100%;
+}
+
+button{
+    width: var(--btn);
+    height: var(--btn);
+    border-radius: calc(var(--btn) / 2);
+    border: transparent 3px solid;
+    background: lightgray;
+    color: black;
+    font-weight: bold;
     font-size: large;
+}
+
+.op{
+    background: darkgray;
+    color: white;
+    font-size: x-large;
 }
 
 .util{
@@ -64,32 +106,35 @@ button{
 }
 
 #e{
-    height: 170px;
-    border-radius: 25px;
+    height: calc(calc(var(--btn) * 3) + calc(var(--gap) * 2));
     background: tomato;
 }
 
-button:hover{
+button:focus, button:hover{
     cursor: pointer;
-    border-color: silver;
-    background: whitesmoke;
-    color: darkslategray;
+    border-color: lightgray;
+    background: gainsboro;
+    color: dimgray;
 }
 
-.op:hover{
+.op:focus, .op:hover{
     border-color: silver;
     background: lightgray;
     color: dimgray;
 }
 
-.util:hover{
+.util:focus, .util:hover{
     border-color: sandybrown;
     background: peachpuff;
     color: coral;
 }
 
-#e:hover{
+#e:focus, #e:hover{
     border-color: tomato;
     background: lightsalmon;
-    color: darkred;
+    color: firebrick;
+}
+
+button:active{
+    filter: blur(1.5px) brightness(1.05);
 }
