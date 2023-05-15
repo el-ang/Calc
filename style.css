@@ -41,6 +41,8 @@ body *{
 .result, .pad{
     width: calc(calc(var(--btn) * 4) + calc(var(--gap) * 3));
     height: calc(var(--gap) * 15);
+    position: relative;
+    overflow: hidden;
 }
 
 .pad{
@@ -56,31 +58,31 @@ body *{
 }
 
 .result h2.prior{
-    height: 40%;
-    margin-top: 100%;
+    height: calc(var(--gap) * 7.5);
+    margin-top: calc(var(--gap) * 7.5);
     color: initial;
     font-size: 48px;
 }
 
 .result h2, .result:hover h2{
-    height: 20%;
-    margin: 0;
+    height: calc(var(--gap) * 2.5);
+    margin-top: calc(var(--gap) * 5);
     color: dimgray;
     font-size: revert;
 }
 
 .result h1{
-    height: 0;
-    font-size: 0;
-}
-
-.result h1.prior, .result:hover h1{
-    height: 40%;
+    height: calc(var(--gap) * 7.5);
     font-size: 48px;
+    overflow: hidden;
 }
 
 .result canvas{
     height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* z-index: -1; */
 }
 
 button{
